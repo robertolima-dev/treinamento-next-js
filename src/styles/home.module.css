@@ -1,0 +1,39 @@
+.menu_area {
+    display: flex;
+    justify-content: center;
+}
+
+.menu_link {
+    padding: 10px;
+}
+
+.title {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.container {
+    text-align: center;
+}
+
+.button {
+    margin: 10px;
+}
+
+.divColor {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+
+@media (max-width: 575.98px) {}
+
+@media (min-width: 576px) and (max-width: 767.98px) {}
+
+@media (min-width: 768px) and (max-width: 991.98px) {}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {}
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {}
+
+@media (min-width: 1400px) {}
