@@ -14,6 +14,9 @@ export default function Page() {
                 <div className={style.menu_link}>
                     <Link href={'/aula_1'}>Aula 1</Link>
                 </div>
+                <div className={style.menu_link}>
+                    <Link href={'/aula_2'}>Aula 2</Link>
+                </div>
             </div>
 
         </Fragment>
