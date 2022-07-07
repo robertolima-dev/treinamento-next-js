@@ -2,12 +2,16 @@ import { Fragment, useEffect, useState } from 'react';
 import Head from 'next/head'
 import Menu from '../components/template/global/Menu'
 import style from '../styles/home.module.css'
+import useMyHook from '../core/hook/useMyHook';
 
 export default function Page() {
 
+    const {
+        name,
+        handleName,
+    } = useMyHook()
+
     const [color, setColor] = useState<string>('')
-    const [name, setName] = useState<string>('Roberto')
-    const [email, setEmail] = useState<string>('')
 
     // CALLBACK
     useEffect(() => {
@@ -17,10 +21,6 @@ export default function Page() {
     // VOID
     const myFunction = (color: string) => {
         setColor(color)
-    }
-
-    const handleName = () => {
-        setName('Luan')
     }
 
     // RETORNO
@@ -56,14 +56,10 @@ export default function Page() {
 
                 </div>
 
-                <button className={style.button} onClick={handleName}>Trocar nome</button>
-
-                {/* funcao retorno  */}
                 {myName(name)}
 
-                <input placeholder="Digite seu email" onChange={(event) => setEmail(event.target.value)} />
+                <input placeholder="Digite seu nome" onChange={(event) => handleName(event)} />
 
-                <div>Meu email é {email}</div>
             </div>
 
 

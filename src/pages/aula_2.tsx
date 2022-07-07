@@ -1,69 +1,24 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment } from 'react';
 import Head from 'next/head'
 import Menu from '../components/template/global/Menu'
 import style from '../styles/home.module.css'
 import { Select, Checkbox, Switch } from 'antd';
+import useMyHook from '../core/hook/useMyHook';
 
 export default function Page() {
 
-    const [name, setName] = useState('')
-    const [text, setText] = useState('')
-    const [total, setTotal] = useState(0)
-    const [productId, setProductId] = useState(null)
-
-    const [products] = useState([
-        { id: 1, product: 'Televisao' },
-        { id: 2, product: 'Celular' },
-        { id: 3, product: 'Radio' },
-        { id: 4, product: 'Maquina de lavar' },
-        { id: 5, product: 'Geladeira' },
-        { id: 6, product: 'Mesa' },
-        { id: 7, product: 'Cadeira' },
-        { id: 8, product: 'Notebook' },
-        { id: 9, product: 'Monitor' },
-        { id: 10, product: 'Luminaria' },
-    ])
-
-    const handleName = (event) => {
-        setName(event.target.value)
-        if (event.target.value.length > 3) {
-            console.log(`chamar filtro na api - qtd chamadas ${event.target.value.length}`)
-        }
-    }
-
-    const handleText = (event) => {
-        console.log(event.target.value)
-        setText(event.target.value)
-        setTotal(event.target.value.length)
-        if (event.target.value.length === 254) {
-            alert('Limite excedido')
-        }
-    }
-
-    const handleSelect = (event) => {
-        console.log(event.target.value)
-        setProductId(event.target.value)
-    }
-
-    const getMyProductName = (item) => {
-        if (item.id === Number(productId)) return <b>{item.product}</b>
-        else {
-            return item.product
-        }
-    }
-
-    const handleSelectAntd = (value) => {
-        console.log(value)
-    }
-
-    const handleCheckbox = (event) => {
-        console.log(event.target.checked)
-
-    }
-
-    const handleSwitch = (checked) => {
-        console.log(checked)
-    }
+    const {
+        name,
+        text,
+        total,
+        products,
+        handleName,
+        handleText,
+        handleSelect,
+        handleSelectAntd,
+        handleCheckbox,
+        handleSwitch,
+    } = useMyHook()
 
     const { Option } = Select
     return (
@@ -84,6 +39,10 @@ export default function Page() {
 
                 <div style={{ marginTop: '12px' }}>
                     <input onChange={(event) => handleName(event)} placeholder="Escreva seu nome" />
+                </div>
+
+                <div>
+                    {name}
                 </div>
 
                 <div style={{ marginTop: '12px' }}>

@@ -4,16 +4,8 @@ import Head from 'next/head'
 import Menu from '../components/template/global/Menu'
 import style from '../styles/home.module.css'
 import { Button, Form, Input } from 'antd';
-import { TextField, Checkbox } from "@material-ui/core";
-import InputHookForm from '../components/template/global/InputHookForm'
 
 export default function App() {
-
-    // const { handleSubmit, control, reset } = useForm({
-    //     defaultValues: {
-    //         checkbox: false,
-    //     }
-    // });
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
